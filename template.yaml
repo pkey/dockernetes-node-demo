@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+spec:
+  selector:
+    matchLabels:
+      app: demo
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo
+        tier: backend
+    spec:
+      containers:
+        - name: demo
+          image: pkey/docker-node-example
+          ports:
+            - name: http
+              containerPort: 3000
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo
+spec:
+  selector:
+    app: demo
+    tier: backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 3000
+  type: LoadBalancer
