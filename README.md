@@ -1,5 +1,7 @@
 # Dockernetes demo
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pkey/dockernetes-node-demo.svg)](https://greenkeeper.io/)
+
 Demo project for showcasing basic docker and kubernetes functionalities
 
 End goal: deploy this application to kubernetes cluster
